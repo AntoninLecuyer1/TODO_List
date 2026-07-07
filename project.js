@@ -1,4 +1,4 @@
-export function newProject (nameOfProject,todos = []){
+export function newProject (nameOfProject){
     let todos = [];
 
     return{
