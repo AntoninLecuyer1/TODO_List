@@ -1,5 +1,4 @@
-
-function newProject (nameOfProject,todos = []){
+export function newProject (nameOfProject,todos = []){
     let todos = [];
 
     return{
@@ -23,11 +22,3 @@ function newProject (nameOfProject,todos = []){
     }
 
 }
-
-function addTodoToProject(project,todo){
-    project.addTodo(todo);
-
-}
-
-var projects = [];
-projects.push(newProject("Name of project"));
