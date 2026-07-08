@@ -76,6 +76,7 @@ a {
     list-style-type:none;
     justify-content: space-between;
 }
+
 /* ---------- Button parameters ---------- */
 
 .btn {
@@ -102,4 +103,21 @@ a {
 .btn:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* ---------- Sidebar toggle ---------- */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background: var(--color-surface);
+  transform: translateX(-100%); /* caché à gauche */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.is-open {
+  transform: translateX(0); /* visible */
 }
