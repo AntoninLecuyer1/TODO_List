@@ -1,0 +1,105 @@
+/* ---------- Basics ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Variables  ---------- */
+:root {
+  --color-bg: #f9f9f9;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-primary: #2563eb;
+  --color-danger: #dc2626;
+  --color-border: #e0e0e0;
+
+  --radius: 8px;
+  --spacing: 1rem;
+}
+
+/* ---------- Global Layout ---------- */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 15vh;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: var(--spacing);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+
+#listTodoHeader{
+    display: flex;
+    list-style-type:none;
+    justify-content: space-between;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.listTodo{
+    display: flex;
+    list-style-type:none;
+    justify-content: space-between;
+}
+/* ---------- Button parameters ---------- */
+
+.btn {
+  align-self:flex-end;
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
