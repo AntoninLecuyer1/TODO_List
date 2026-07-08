@@ -1,20 +1,22 @@
-import {newTodo} from "./todo.js";
-import {newProject} from "./project.js";
+import { newTodo } from "./todo.js";
+//import { renderTodo } from "./render/renderTodo.js";
+import { newProject } from "./project.js";
+import { renderProject } from "./render/renderProject.js"
 
 
 const project = newProject("Brassage IPA");
 const todo1 = newTodo("Acheter du houblon", "desc", "2025-01-01", "haute");
-
+const todo2 = newTodo("Creer la recette", "Desc", "2025-01-07", "moyenne");
+const todo3 = newTodo("Brasser","Utiliser recette","2025-01-15","basse",true);
 
 project.addTodo(todo1);
+project.addTodo(todo2);
+project.addTodo(todo3);
+
+renderProject(project);
 
 
-console.log(project.getTodos().length === 1 ? "addTodo OK" : "addTodo FAIL");
-
-project.removeTodo(todo1.id);
-
-console.log(project.getTodos().length === 0 ? "removeTodo OK" : "removeTodo FAIL");
-
+// Toggle the burger
 const burger = document.querySelector('.burger');
 const sidebar = document.querySelector('.sidebar');
 const closeBtn = document.querySelector('.close-btn');

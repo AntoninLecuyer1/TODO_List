@@ -1,6 +1,5 @@
-// title,description,dueDate,priority,status = false
 
-function renderTodo(todo){
+export function renderTodo(todo){
     const container = document.querySelector(".container");
 
     const arrayTodo = document.createElement("ul");
