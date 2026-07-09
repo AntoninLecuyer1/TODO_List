@@ -1,7 +1,8 @@
 import { newTodo } from "./todo.js";
-//import { renderTodo } from "./render/renderTodo.js";
 import { newProject } from "./project.js";
 import { renderProject } from "./render/renderProject.js"
+import { getFormTodo } from "./form/getFormTodo.js";
+import { formToTodo } from "./formToTodo.js";
 
 
 const project = newProject("Brassage IPA");
@@ -14,6 +15,17 @@ project.addTodo(todo2);
 project.addTodo(todo3);
 
 renderProject(project);
+
+const addTodoBtn = document.querySelector('#addTodo-btn');
+const formDisplay = getFormTodo();
+document.body.appendChild(formDisplay);
+
+addTodoBtn.addEventListener('click', () =>{
+  
+  formDisplay.showModal();
+  // project.addTodo(formToTodo(formDisplay));
+  // renderProject(project);
+});
 
 
 // Toggle the burger
