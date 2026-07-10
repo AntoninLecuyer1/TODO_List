@@ -1,111 +1,104 @@
-/* ---------- Basics ---------- */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-}
-
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
+  font-family: system-ui, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 2rem;
 }
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+main {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-button, input, select, textarea {
-  font: inherit;
+h1 {
+  text-align: center;
+  color: #2c3e50;
 }
 
-ul, ol {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ---------- Variables  ---------- */
-:root {
-  --color-bg: #f9f9f9;
-  --color-surface: #ffffff;
-  --color-text: #1a1a1a;
-  --color-primary: #2563eb;
-  --color-danger: #dc2626;
-  --color-border: #e0e0e0;
-
-  --radius: 8px;
-  --spacing: 1rem;
-}
-
-/* ---------- Global Layout ---------- */
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 15vh;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: var(--spacing);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-
-#listTodoHeader{
-    display: flex;
-    list-style-type:none;
-    justify-content: space-between;
-
-    font-size: 20px;
-    font-weight: bold;
+/* Chaque todo = une carte */
+.listTodo {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-left: 6px solid #ccc;
 }
 
-.listTodo{
-    display: flex;
-    list-style-type:none;
-    justify-content: space-between;
+/* En-tête différent des cartes */
+#listTodoHeader {
+  display: none; /* on cache l'en-tête, les cartes se suffisent à elles-mêmes */
 }
 
-/* ---------- Button parameters ---------- */
+.title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.description {
+  color: #555;
+}
+
+.dueDate {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.status {
+  width: 20px;
+  height: 20px;
+}
+
+/* Couleurs par priorité */
+.listTodo:has(.priority[data-priority="haute"]) {
+  border-left-color: #e74c3c;
+}
+.listTodo:has(.priority[data-priority="moyenne"]) {
+  border-left-color: #f39c12;
+}
+.listTodo:has(.priority[data-priority="basse"]) {
+  border-left-color: #2ecc71;
+}
 
 .btn {
-  align-self:flex-end;
-  margin-top: auto;
-  padding: 0.5rem 1rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius);
-  background-color: var(--color-primary);
+  padding: 0.6rem 1.2rem;
+  background: #3498db;
   color: white;
-  font-weight: 600;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.05s ease;
+  font-size: 1rem;
 }
 
 .btn:hover {
-  background-color: #1d4ed8;
+  background: #2980b9;
 }
 
-.btn:active {
-  transform: scale(0.98);
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 1.5rem;
 }
 
-.btn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+dialog::backdrop {
+  background: rgba(0,0,0,0.4);
 }
 
-/* ---------- Sidebar toggle ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 
 .sidebar {
   position: fixed;
@@ -120,4 +113,46 @@ a {
 
 .sidebar.is-open {
   transform: translateX(0); /* visible */
+}
+
+#burgerDiv {
+  position: relative;
+}
+
+.burger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background: #2c3e50;
+  font-size: 1.5rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.sidebar {
+  z-index: 999;
+  padding: 3rem 1rem 1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #e74c3c;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.1rem;
 }

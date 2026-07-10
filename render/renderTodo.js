@@ -26,6 +26,7 @@ export function renderTodo(todo){
     arrayTodo.appendChild(dueDate);
 
     const priority = document.createElement("li");
+    priority.setAttribute("data-priority", todo.priority);
     priority.classList.add("priority");
     priority.textContent = todo.priority;
     arrayTodo.appendChild(priority);
