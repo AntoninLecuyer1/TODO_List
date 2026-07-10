@@ -4,6 +4,7 @@ import { renderProject } from "./render/renderProject.js"
 import { getFormTodo } from "./form/getFormTodo.js";
 import { formToTodo } from "./formToTodo.js";
 import { renderTodo } from "./render/renderTodo.js";
+import { getFormProject } from "./form/getFormProject.js";
 
 
 const project = newProject("Brassage IPA");
@@ -21,24 +22,29 @@ renderProject(project);
 
 /*---------------- Form ------------------*/
 const addTodoBtn = document.querySelector('#addTodo-btn');
-const formDisplay = getFormTodo();
-document.body.appendChild(formDisplay);
-
-
+const formDisplayTodo = getFormTodo();
+document.body.appendChild(formDisplayTodo);
 
 addTodoBtn.addEventListener('click', () =>{
-  formDisplay.showModal();
+  formDisplayTodo.showModal();
 });
 
-formDisplay.querySelector("form").addEventListener("submit", (event) =>{
+formDisplayTodo.querySelector("form").addEventListener("submit", (event) =>{
   event.preventDefault();
-  const addTodoForm = formToTodo(formDisplay)
+  const addTodoForm = formToTodo(formDisplayTodo)
   project.addTodo(addTodoForm);
   renderTodo(addTodoForm)
-  formDisplay.close();
+  formDisplayTodo.close();
 })
 
+/*---------------- Project  ------------------*/
+const addProjectBtn = document.querySelector('#addProject-btn');
+const formDisplayProject = getFormProject();
+document.body.appendChild(formDisplayProject);
 
+addTodoBtn.addEventListener('click', () =>{
+  formDisplayProject.showModal();
+});
 
 /*---------------- Toggle the burger ------------------*/
 const burger = document.querySelector('.burger');
