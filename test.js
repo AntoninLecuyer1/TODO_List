@@ -16,19 +16,28 @@ project.addTodo(todo3);
 
 renderProject(project);
 
+
+/*---------------- Form ------------------*/
 const addTodoBtn = document.querySelector('#addTodo-btn');
 const formDisplay = getFormTodo();
 document.body.appendChild(formDisplay);
 
+
+
 addTodoBtn.addEventListener('click', () =>{
-  
   formDisplay.showModal();
-  // project.addTodo(formToTodo(formDisplay));
-  // renderProject(project);
 });
 
+formDisplay.querySelector("form").addEventListener("submit", (event) =>{
+  event.preventDefault();
+  project.addTodo(formToTodo(formDisplay));
+  renderProject(project);
+  formDisplay.close();
+})
 
-// Toggle the burger
+
+
+/*---------------- Toggle the burger ------------------*/
 const burger = document.querySelector('.burger');
 const sidebar = document.querySelector('.sidebar');
 const closeBtn = document.querySelector('.close-btn');

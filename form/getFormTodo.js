@@ -64,6 +64,12 @@ export function getFormTodo(){
     form.appendChild(labelPriorityHigh);
     form.appendChild(priorityHigh);
 
+    const submitButton = document.createElement("input");
+    submitButton.setAttribute("type","submit");
+    submitButton.setAttribute("value","Submit form");
+    form.appendChild(submitButton);
+
+
 
     return dialog;
 }

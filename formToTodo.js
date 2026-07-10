@@ -1,7 +1,7 @@
 import { newTodo } from "./todo.js";
 
 
-function formToTodo(dialog){
+export function formToTodo(dialog){
     const title = dialog.querySelector("#titleForm").value;
     const description = dialog.querySelector("#descriptionForm").value;
     const dueDate = dialog.querySelector("#dueDateForm").value;
